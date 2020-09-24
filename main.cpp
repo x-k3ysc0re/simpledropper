@@ -1,6 +1,8 @@
 #include <windows.h>
 #include <wininet.h>
 #include <urlmon.h>
+#include <iostream>
+using namespace std;
 typedef HRESULT (WINAPI* lpURLDownloadToFile) (LPUNKNOWN t,
     LPCTSTR q,
     LPCTSTR s,
@@ -19,6 +21,9 @@ if(URLDownloadToFile == NULL)
 {
     MessageBox(0,"Failed","Error",MB_OK);
 }
-    URLDownloadToFile(0, "LINK TO YOUR FILE", "NAME OF FILE.EXTENSION", 0, 0);
+    char filelink[] = "";
+    char filename[] = "";
+    URLDownloadToFile(0, filelink, filename, 0, 0);
+    cout << "the file has been successfully downloaded..." << endl;
     return 0;
 }
